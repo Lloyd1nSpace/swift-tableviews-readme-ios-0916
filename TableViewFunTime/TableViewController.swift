@@ -13,15 +13,12 @@ class TableViewController: UITableViewController {
     var favoriteSongs: [String] = []
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        
         generateFavoriteSongs()
-        
     }
     
     func generateFavoriteSongs() {
-
+        
         favoriteSongs = [
             "Thriller",
             "Never Gonna Give You Up",
@@ -40,30 +37,20 @@ class TableViewController: UITableViewController {
     
     
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
         return 1
-        
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return favoriteSongs.count
-        
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                
         let cell = tableView.dequeueReusableCell(withIdentifier: "basicCell", for: indexPath)
-
-        let favoriteSong = favoriteSongs[(indexPath as NSIndexPath).row]
+        let favoriteSong = favoriteSongs[indexPath.row]
+        cell.textLabel!.text = favoriteSong
         
-        cell.textLabel?.text = favoriteSong
-
         return cell
     }
- 
-
+    
 }
